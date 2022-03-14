@@ -1,0 +1,354 @@
+<Manager>:
+    LoginScreen:
+        name: "login"
+    HomePage:
+        name: "home_page"
+    ResetPassword:
+        name: "reset_password"
+    Register:
+        name: "register"
+    Quizzes:
+        name: "quizzes"
+    Result:
+        name: "result"
+
+<LoginScreen>:
+    FloatLayout:
+        Image:
+            source: "img/microsoft.png"
+            size_hint: (.8, .8)
+            pos_hint: {"center_x": .5, "center_y": .78}
+        MDLabel:
+            text: "Microsoft Quizzes"
+            pos_hint: {"center_x": .5, "center_y": .62}
+            halign: "center"
+            bold: True
+            font_style: "H5"
+        MDLabel:
+            text: "Login to continue."
+            pos_hint: {"center_x": .5, "center_y": .58}
+            halign: "center"
+            font_style: "Caption"
+        MDTextField:
+            hint_text: "Email"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .5}
+            icon_right: "email"
+            icon_right_color: app.theme_cls.primary_color
+            id: text_email
+        MDTextField:
+            hint_text: "Password"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .4}
+            icon_right: "lock"
+            password: True
+            icon_right_color: app.theme_cls.primary_color
+            id: text_password
+        MDLabel:
+            id: error_login
+            text: ""
+            pos_hint: {"center_x": .30, "center_y": .33}
+            halign: "center"
+            font_style: "Caption"
+            font_size: 16
+            theme_text_color: "Error"
+        MDTextButton:
+            text: "Reset password"
+            pos_hint: {"center_x": .72, "center_y": .33}
+            on_release: app.root.current = "reset_password"
+        MDFillRoundFlatIconButton:
+            text: "Sign In"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .23}
+            size_hint_x: .6
+            icon: "login"
+            on_release: root.try_sign_in()
+        MDFillRoundFlatIconButton:
+            text: "Register"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .12}
+            size_hint_x: .6
+            icon: "plus"
+            on_release: app.root.current = "register"
+
+<HomePage>:
+    FloatLayout:
+        orientation: "vertical"
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            right_action_items: [["arrow-right", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_color
+            md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "img/Logo_Python.png"
+            size_hint: (.3, .3)
+            pos_hint: {"center_x": .5, "center_y": .625}
+        MDLabel:
+            text: "Welcome to Microsoft Quizzes!"
+            halign: "center"
+            bold: True
+            font_size: 22
+            pos_hint: {"center_x": .5, "center_y": .8}
+        MDLabel:
+            text: "98-381 Exam:\nIntroduction to Programming Using Python\n\nMinimum score: 70%"
+            halign: "center"
+            bold: True
+            font_size: 16
+            pos_hint: {"center_x": .5, "center_y": .43}
+        MDRaisedButton:
+            text: "Start"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .3}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.get_start() 
+        MDRaisedButton:
+            text: "Logout"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .2}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: app.root.current = "login" 
+
+<ResetPassword>:
+    FloatLayout:
+        orientation: "vertical"
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_color
+            md_bg_color: 1, 1, 1, 1
+        MDLabel:
+            text: "Send E-mail to reset password."
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: text_redefined
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: app.theme_cls.primary_color
+            id: email_confirm
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .4}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.send_email_confirm()
+
+<Register>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_color
+            md_bg_color: 1, 1, 1, 1
+        MDLabel:
+            text: "Enter your data"
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: label_register
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: app.theme_cls.primary_color
+            id: email_register
+        MDTextField:
+            hint_text: "Password"
+            pos_hint: {"center_x": .5, "center_y": .4}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: app.theme_cls.primary_color
+            id: password_register
+        MDTextField:
+            hint_text: "Confirm Password"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: app.theme_cls.primary_color
+            id: password_register_confirm
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .17}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.validate_info()
+
+<Quizzes>:
+
+    choice_a: check1
+    choice_b: check2
+    choice_c: check3
+    choice_d: check4
+
+    FloatLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            right_action_items: [["arrow-right", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_color
+            md_bg_color: 1, 1, 1, 1
+            
+        MDLabel:
+            id: show_questions
+            text: ""
+            halign: "left"
+            bold: True
+            font_size: 18
+            pos_hint: {"center_x": .53, "center_y": .60}
+            size_hint: .8, .4
+
+        MDLabel:
+            text: "Mark your choice and click on 'Next'!"
+            halign: "center"
+            bold: True
+            font_size: 10
+            pos_hint: {"center_x": .5, "center_y": .30}
+
+        MDCheckbox:
+            id: check1
+            group: "group"
+            pos_hint: {"center_x": .15, "center_y": .25}
+            size_hint: .1, .1
+
+        MDLabel:
+            text: "A"
+            halign: "center"
+            bold: True
+            font_size: 22
+            pos_hint: {"center_x": .22, "center_y": .25}
+    
+        MDCheckbox:
+            id: check2
+            group: "group"
+            pos_hint: {"center_x": .35, "center_y": .25}
+            size_hint: .1, .1
+
+        MDLabel:
+            text: "B"
+            halign: "center"
+            bold: True
+            font_size: 22
+            pos_hint: {"center_x": .42, "center_y": .25}
+        
+        MDCheckbox:
+            id: check3
+            group: "group"
+            pos_hint: {"center_x": .55, "center_y": .25}
+            size_hint: .1, .1
+
+        MDLabel:
+            text: "C"
+            halign: "center"
+            bold: True
+            font_size: 22
+            pos_hint: {"center_x": .62, "center_y": .25}
+        
+        MDCheckbox:
+            id: check4
+            group: "group"
+            pos_hint: {"center_x": .75, "center_y": .25}
+            size_hint: .1, .1
+            #on_press: root.check3(self,self.active)
+        
+        MDLabel:
+            text: "D"
+            halign: "center"
+            bold: True
+            font_size: 22
+            pos_hint: {"center_x": .82, "center_y": .25}
+
+        MDLabel:
+            id: error_answer
+            text: ""
+            pos_hint: {"center_x": .5, "center_y": .215}
+            halign: "center"
+            font_style: "Caption"
+            font_size: 16
+            theme_text_color: "Error"
+
+        MDRaisedButton:
+            id: next_question
+            text: "next"
+            font_size: 17
+            size_hint: .3,.08
+            pos_hint: {"center_x": .5, "center_y": .15}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_press: root.check_choice()
+            
+<Result>:
+    FloatLayout:
+        orientation: "vertical"
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_color
+            md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            id: result_icon
+            pos_hint: {'center_x':.5,'center_y':.75}
+            icon: 'emoticon-outline'
+            user_font_size: "75sp"
+        MDLabel:
+            text: "Result:"
+            halign: "center"
+            bold: True
+            font_size: 35
+            pos_hint: {"center_x": .5, "center_y": .60}
+        MDLabel:
+            id: final_result
+            text: ""
+            halign: "center"
+            bold: True
+            font_size: 50
+            pos_hint: {"center_x": .5, "center_y": .50}
+            theme_text_color: "Error"
+
+        MDLabel:
+            id: congrats_sorry
+            text: ""
+            halign: "center"
+            bold: True
+            font_size: 20
+            pos_hint: {"center_x": .5, "center_y": .40}
+        MDRaisedButton:
+            text: "Try Again"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .3}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: app.root.current = "home_page"
+        MDRaisedButton:
+            text: "Logout"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .2}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.callback()
+        MDRaisedButton:
+            text: "Exit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .1}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.quit()

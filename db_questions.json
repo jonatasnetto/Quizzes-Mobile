@@ -1,0 +1,12 @@
+{
+    "0": "1. Which statement best describes a String in Python/Computer Science?\n\nA. sequence of characters\nB. series of 1's and 0's\nC. computer keyboard\nD. object existing in four dimensions",
+    "1": "2. Choose the statement that will print the letter 'd', given the variable declaration:\n\n word = 'windows'\n\nA. print(word[-2])\nB. print(word[-1])\nC. print(word[2])\nD. print(word[3])",
+    "2": "3. Which print output is the result of the following code:\n\n word = 'windows'\nprint(word[-1])\n\nA.  'w'\nB.  's'\nC.  'i'\nD.  ''(empty string)",
+    "3": "4. Which choice will print the first half of the word 'Consequences', given the following variable declaration?\n\nword = 'Consequences'\n\nA. print(word[6:])\nB.  print(word[:6])\nC.  print(word[1:7])\nD.  print(word[7:1])",
+    "4": "5. Choose the correct print output for the following code:\n\nname = 'Alton'\nprint(name[::2])\n\nA.  'Atn'\nB.  'lo'\nC.  'on'\nD.  'Al'",
+    "5": "6. Which choice will print the word 'tac', given the following variable declaration?\n\nword = 'cat'\n\nA.  print(word[::-1])\nB.  print(word[::1])\nC.  print(word[0:1:2])\nD.  print(word[2:1:0])",
+    "6": "7. Which string method returns an index of first character or substring matches?\n\nA.    .find()\nB.    .count()\nC.    .isalpha()\nD.    while",
+    "7": "8. Which is NOT a start to a string iteration loop, given the following string variable assignment?\n\nword = 'health'\n\nA.  for letter in word:\nB.  for word in letter:\nC.  for ltr in word[1:]:\nD.  for part in 'health':",
+    "8": "9. Which choice best represents the output of the following code?\n\nstudent_name = 'iteration'\n\nnew_word = ''''\n\nfor letter in student_name[:3]:\n    new_word += letter\n    print(new_word)\n\nA.  'ration'\nB.  'ite'\nC.  'iter'\nD.  'ation'",
+    "9": "10. Which choice best represents the output of the following code?\n\nstudent_name = 'iteration'\ncount = 0\nfor letter in student_name:\n    if letter.lower() == 'e':\n  print(count)\n  count += 1\n\nA.  '2'\nB.  '3'\nC.  '-4'\nD.  '-5'"
+}
