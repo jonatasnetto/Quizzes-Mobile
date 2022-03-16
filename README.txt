@@ -1,39 +1,39 @@
 # Quizzes-Mobile
-Microsoft Quizzes with Python-KivyMD\n\n
+Microsoft Quizzes with Python-KivyMD
 
-Quizzes-Mobile is a dynamic quiz app created to test the knowledge about Python introduction certification. It was created as the final project from my Python course.\n\n
+Quizzes-Mobile is a dynamic quiz app created to test the knowledge about Python introduction certification. It was created as the final project from my Python course.
 
-Goals:\n
-    Mobile access to the quiz\n
-    Ability to register user and customize their data personal\n
-    Ability to try again anytime\n\n
+Goals:
+    Mobile access to the quiz
+    Ability to register user and customize their data personal
+    Ability to try again anytime
 
-Instructions:\n
-    Please start your IDE executing the Webpage at main.py\n\n
+Instructions:
+    Please start your IDE executing the Webpage at main.py
 
-    Login: jonatasnetto@gmail.com\n
-    Password: 123456\n\n
+    Login: jonatasnetto@gmail.com
+    Password: 123456
 
-Structure:\n\n
+Structure:
     
-      /img - Folder with all images used on the app\n
+      /img - Folder with all images used on the app
 
-    /db_answers.json - Answers database with JSON\n
-    /db_questions.json - Questions database with JSON\n
-    /login_firebase.py - Script with the authentication parameters to access validation\n
-    /main.kv - KV language with the mark parameters and widget functions\n
-    /main.py - Home - Main file with the functions\n
-    /requirements.txt - Information file with all methods needed to run the app\n\n
+    /db_answers.json - Answers database with JSON
+    /db_questions.json - Questions database with JSON
+    /login_firebase.py - Script with the authentication parameters to access validation
+    /main.kv - KV language with the mark parameters and widget functions
+    /main.py - Home - Main file with the functions
+    /requirements.txt - Information file with all methods needed to run the app
 	
-Features:\n
-    Register and Password reset to the users\n
-    Login/Logout\n
-    Choice the answer with radio-buttons\n
-    Present the final result with score\n\n
+Features:
+    Register and Password reset to the users
+    Login/Logout
+    Choice the answer with radio-buttons
+    Present the final result with score
 
-Sintax and Tools:\n
-    Python\n
-    KivyMD\n
-    Kvlang\n
-    Firebase\n
-    JSON\n
+Sintax and Tools:
+    Python
+    KivyMD
+    Kvlang
+    Firebase
+    JSON
